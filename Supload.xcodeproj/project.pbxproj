@@ -1,0 +1,524 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1831477619B63A5B00B00F46 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1831477519B63A5B00B00F46 /* Foundation.framework */; };
+		1831477819B63A5B00B00F46 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1831477719B63A5B00B00F46 /* CoreGraphics.framework */; };
+		1831477A19B63A5B00B00F46 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1831477919B63A5B00B00F46 /* UIKit.framework */; };
+		1831478019B63A5B00B00F46 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1831477E19B63A5B00B00F46 /* InfoPlist.strings */; };
+		1831478219B63A5B00B00F46 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1831478119B63A5B00B00F46 /* main.m */; };
+		1831478619B63A5B00B00F46 /* SuploadAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1831478519B63A5B00B00F46 /* SuploadAppDelegate.m */; };
+		1831478919B63A5B00B00F46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1831478719B63A5B00B00F46 /* Main.storyboard */; };
+		1831478C19B63A5B00B00F46 /* SuploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1831478B19B63A5B00B00F46 /* SuploadViewController.m */; };
+		1831479519B63A5B00B00F46 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1831479419B63A5B00B00F46 /* XCTest.framework */; };
+		1831479619B63A5B00B00F46 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1831477519B63A5B00B00F46 /* Foundation.framework */; };
+		1831479719B63A5B00B00F46 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1831477919B63A5B00B00F46 /* UIKit.framework */; };
+		1831479F19B63A5B00B00F46 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1831479D19B63A5B00B00F46 /* InfoPlist.strings */; };
+		183147A119B63A5B00B00F46 /* SuploadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 183147A019B63A5B00B00F46 /* SuploadTests.m */; };
+		183147AB19B63BF600B00F46 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183147AA19B63BF600B00F46 /* FacebookSDK.framework */; };
+		183147AE19B63C2600B00F46 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183147AD19B63C2600B00F46 /* PostViewController.m */; };
+		183147B119B63C4700B00F46 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183147B019B63C4700B00F46 /* LoginViewController.m */; };
+		184DA6E619C789900039C58E /* RennSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184DA6E519C789900039C58E /* RennSDK.framework */; };
+		1891094C19C75DEC00AA51A6 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891094B19C75DEC00AA51A6 /* libsqlite3.0.dylib */; };
+		18A0599019BE2E5C00FB925B /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A0598D19BE2E5C00FB925B /* libWeChatSDK.a */; };
+		18EE163219D5D12B00BAA98A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18EE163119D5D12B00BAA98A /* Images.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1831479819B63A5B00B00F46 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1831476A19B63A5B00B00F46 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1831477119B63A5B00B00F46;
+			remoteInfo = Supload;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1831477219B63A5B00B00F46 /* Supload.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Supload.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1831477519B63A5B00B00F46 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1831477719B63A5B00B00F46 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1831477919B63A5B00B00F46 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1831477D19B63A5B00B00F46 /* Supload-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Supload-Info.plist"; sourceTree = "<group>"; };
+		1831477F19B63A5B00B00F46 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1831478119B63A5B00B00F46 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1831478319B63A5B00B00F46 /* Supload-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Supload-Prefix.pch"; sourceTree = "<group>"; };
+		1831478419B63A5B00B00F46 /* SuploadAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SuploadAppDelegate.h; sourceTree = "<group>"; };
+		1831478519B63A5B00B00F46 /* SuploadAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SuploadAppDelegate.m; sourceTree = "<group>"; };
+		1831478819B63A5B00B00F46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1831478A19B63A5B00B00F46 /* SuploadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SuploadViewController.h; sourceTree = "<group>"; };
+		1831478B19B63A5B00B00F46 /* SuploadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SuploadViewController.m; sourceTree = "<group>"; };
+		1831479319B63A5B00B00F46 /* SuploadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SuploadTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1831479419B63A5B00B00F46 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		1831479C19B63A5B00B00F46 /* SuploadTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SuploadTests-Info.plist"; sourceTree = "<group>"; };
+		1831479E19B63A5B00B00F46 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		183147A019B63A5B00B00F46 /* SuploadTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SuploadTests.m; sourceTree = "<group>"; };
+		183147AA19B63BF600B00F46 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		183147AC19B63C2600B00F46 /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostViewController.h; sourceTree = "<group>"; };
+		183147AD19B63C2600B00F46 /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
+		183147AF19B63C4700B00F46 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		183147B019B63C4700B00F46 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		184DA6E519C789900039C58E /* RennSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RennSDK.framework; path = Supload/RennSDK.framework; sourceTree = "<group>"; };
+		1891094B19C75DEC00AA51A6 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		18A0598D19BE2E5C00FB925B /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		18A0598E19BE2E5C00FB925B /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		18A0598F19BE2E5C00FB925B /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		18EE163119D5D12B00BAA98A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1831476F19B63A5B00B00F46 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1891094C19C75DEC00AA51A6 /* libsqlite3.0.dylib in Frameworks */,
+				184DA6E619C789900039C58E /* RennSDK.framework in Frameworks */,
+				1831477819B63A5B00B00F46 /* CoreGraphics.framework in Frameworks */,
+				183147AB19B63BF600B00F46 /* FacebookSDK.framework in Frameworks */,
+				1831477A19B63A5B00B00F46 /* UIKit.framework in Frameworks */,
+				1831477619B63A5B00B00F46 /* Foundation.framework in Frameworks */,
+				18A0599019BE2E5C00FB925B /* libWeChatSDK.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1831479019B63A5B00B00F46 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1831479519B63A5B00B00F46 /* XCTest.framework in Frameworks */,
+				1831479719B63A5B00B00F46 /* UIKit.framework in Frameworks */,
+				1831479619B63A5B00B00F46 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1831476919B63A5B00B00F46 = {
+			isa = PBXGroup;
+			children = (
+				1831477B19B63A5B00B00F46 /* Supload */,
+				1831479A19B63A5B00B00F46 /* SuploadTests */,
+				1831477419B63A5B00B00F46 /* Frameworks */,
+				1831477319B63A5B00B00F46 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1831477319B63A5B00B00F46 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1831477219B63A5B00B00F46 /* Supload.app */,
+				1831479319B63A5B00B00F46 /* SuploadTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1831477419B63A5B00B00F46 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1891094B19C75DEC00AA51A6 /* libsqlite3.0.dylib */,
+				184DA6E519C789900039C58E /* RennSDK.framework */,
+				183147AA19B63BF600B00F46 /* FacebookSDK.framework */,
+				1831477519B63A5B00B00F46 /* Foundation.framework */,
+				1831477719B63A5B00B00F46 /* CoreGraphics.framework */,
+				1831477919B63A5B00B00F46 /* UIKit.framework */,
+				1831479419B63A5B00B00F46 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1831477B19B63A5B00B00F46 /* Supload */ = {
+			isa = PBXGroup;
+			children = (
+				1831478419B63A5B00B00F46 /* SuploadAppDelegate.h */,
+				1831478519B63A5B00B00F46 /* SuploadAppDelegate.m */,
+				1831478719B63A5B00B00F46 /* Main.storyboard */,
+				1831478A19B63A5B00B00F46 /* SuploadViewController.h */,
+				1831478B19B63A5B00B00F46 /* SuploadViewController.m */,
+				183147AF19B63C4700B00F46 /* LoginViewController.h */,
+				183147B019B63C4700B00F46 /* LoginViewController.m */,
+				183147AC19B63C2600B00F46 /* PostViewController.h */,
+				183147AD19B63C2600B00F46 /* PostViewController.m */,
+				18EE163119D5D12B00BAA98A /* Images.xcassets */,
+				1831477C19B63A5B00B00F46 /* Supporting Files */,
+			);
+			path = Supload;
+			sourceTree = "<group>";
+		};
+		1831477C19B63A5B00B00F46 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				18A0598D19BE2E5C00FB925B /* libWeChatSDK.a */,
+				18A0598E19BE2E5C00FB925B /* WXApi.h */,
+				18A0598F19BE2E5C00FB925B /* WXApiObject.h */,
+				1831477D19B63A5B00B00F46 /* Supload-Info.plist */,
+				1831477E19B63A5B00B00F46 /* InfoPlist.strings */,
+				1831478119B63A5B00B00F46 /* main.m */,
+				1831478319B63A5B00B00F46 /* Supload-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1831479A19B63A5B00B00F46 /* SuploadTests */ = {
+			isa = PBXGroup;
+			children = (
+				183147A019B63A5B00B00F46 /* SuploadTests.m */,
+				1831479B19B63A5B00B00F46 /* Supporting Files */,
+			);
+			path = SuploadTests;
+			sourceTree = "<group>";
+		};
+		1831479B19B63A5B00B00F46 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1831479C19B63A5B00B00F46 /* SuploadTests-Info.plist */,
+				1831479D19B63A5B00B00F46 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1831477119B63A5B00B00F46 /* Supload */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 183147A419B63A5B00B00F46 /* Build configuration list for PBXNativeTarget "Supload" */;
+			buildPhases = (
+				1831476E19B63A5B00B00F46 /* Sources */,
+				1831476F19B63A5B00B00F46 /* Frameworks */,
+				1831477019B63A5B00B00F46 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Supload;
+			productName = Supload;
+			productReference = 1831477219B63A5B00B00F46 /* Supload.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1831479219B63A5B00B00F46 /* SuploadTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 183147A719B63A5B00B00F46 /* Build configuration list for PBXNativeTarget "SuploadTests" */;
+			buildPhases = (
+				1831478F19B63A5B00B00F46 /* Sources */,
+				1831479019B63A5B00B00F46 /* Frameworks */,
+				1831479119B63A5B00B00F46 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1831479919B63A5B00B00F46 /* PBXTargetDependency */,
+			);
+			name = SuploadTests;
+			productName = SuploadTests;
+			productReference = 1831479319B63A5B00B00F46 /* SuploadTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1831476A19B63A5B00B00F46 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = Supload;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = supload;
+				TargetAttributes = {
+					1831479219B63A5B00B00F46 = {
+						TestTargetID = 1831477119B63A5B00B00F46;
+					};
+				};
+			};
+			buildConfigurationList = 1831476D19B63A5B00B00F46 /* Build configuration list for PBXProject "Supload" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1831476919B63A5B00B00F46;
+			productRefGroup = 1831477319B63A5B00B00F46 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1831477119B63A5B00B00F46 /* Supload */,
+				1831479219B63A5B00B00F46 /* SuploadTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1831477019B63A5B00B00F46 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18EE163219D5D12B00BAA98A /* Images.xcassets in Resources */,
+				1831478019B63A5B00B00F46 /* InfoPlist.strings in Resources */,
+				1831478919B63A5B00B00F46 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1831479119B63A5B00B00F46 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1831479F19B63A5B00B00F46 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1831476E19B63A5B00B00F46 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				183147AE19B63C2600B00F46 /* PostViewController.m in Sources */,
+				1831478C19B63A5B00B00F46 /* SuploadViewController.m in Sources */,
+				1831478219B63A5B00B00F46 /* main.m in Sources */,
+				1831478619B63A5B00B00F46 /* SuploadAppDelegate.m in Sources */,
+				183147B119B63C4700B00F46 /* LoginViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1831478F19B63A5B00B00F46 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				183147A119B63A5B00B00F46 /* SuploadTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1831479919B63A5B00B00F46 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1831477119B63A5B00B00F46 /* Supload */;
+			targetProxy = 1831479819B63A5B00B00F46 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1831477E19B63A5B00B00F46 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1831477F19B63A5B00B00F46 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1831478719B63A5B00B00F46 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1831478819B63A5B00B00F46 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1831479D19B63A5B00B00F46 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1831479E19B63A5B00B00F46 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		183147A219B63A5B00B00F46 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		183147A319B63A5B00B00F46 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		183147A519B63A5B00B00F46 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/apple/Documents/FacebookSDK,
+					"$(PROJECT_DIR)/Supload",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Supload/Supload-Prefix.pch";
+				INFOPLIST_FILE = "Supload/Supload-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Supload",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		183147A619B63A5B00B00F46 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/apple/Documents/FacebookSDK,
+					"$(PROJECT_DIR)/Supload",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Supload/Supload-Prefix.pch";
+				INFOPLIST_FILE = "Supload/Supload-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Supload",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		183147A819B63A5B00B00F46 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Supload.app/Supload";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Supload/Supload-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SuploadTests/SuploadTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		183147A919B63A5B00B00F46 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Supload.app/Supload";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Supload/Supload-Prefix.pch";
+				INFOPLIST_FILE = "SuploadTests/SuploadTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1831476D19B63A5B00B00F46 /* Build configuration list for PBXProject "Supload" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				183147A219B63A5B00B00F46 /* Debug */,
+				183147A319B63A5B00B00F46 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		183147A419B63A5B00B00F46 /* Build configuration list for PBXNativeTarget "Supload" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				183147A519B63A5B00B00F46 /* Debug */,
+				183147A619B63A5B00B00F46 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		183147A719B63A5B00B00F46 /* Build configuration list for PBXNativeTarget "SuploadTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				183147A819B63A5B00B00F46 /* Debug */,
+				183147A919B63A5B00B00F46 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1831476A19B63A5B00B00F46 /* Project object */;
+}
