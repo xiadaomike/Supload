@@ -224,6 +224,7 @@
     
 }
 
+
 #pragma mark Renren
 
 -(void) updateRennMessageOnlyStatus {
@@ -255,7 +256,8 @@
 {
 
     if ([service.type isEqualToString:@"ListAlbum"]) {
-        [self uploadRennPhotoWithAlbum:[response objectForKey:@"id"]];
+        [self uploadRennPhotoWithAlbum:[NSString stringWithFormat:@"%@", [[response firstObject] objectForKey:@"id"]]];
+        NSLog(@"%@", [[response firstObject] objectForKey:@"id"]);
     } else {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:@"Publish Successfully" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alertView show];
