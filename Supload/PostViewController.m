@@ -35,6 +35,8 @@
     self.RenChosen = true;
 }
 
+- (IBAction)dragButton:(UIPanGestureRecognizer *)sender {
+}
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
