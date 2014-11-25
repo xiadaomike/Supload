@@ -14,3 +14,7 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+
+
+#define WeiboAppKey         @"1997768762"
+#define WeiboRedirectURI    @"http://"

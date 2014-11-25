@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "WXApi.h"
-@interface SuploadAppDelegate : UIResponder <UIApplicationDelegate,WXApiDelegate>
+#import "WeiboSDK.h"
+
+@interface SuploadAppDelegate : UIResponder <UIApplicationDelegate,WXApiDelegate, WeiboSDKDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) NSString *weibotoken;
 
 @end

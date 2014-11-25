@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="RMM-yn-gHR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="RMM-yn-gHR">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -18,12 +19,10 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SHR-lj-e7x">
                                 <rect key="frame" x="66" y="220" width="189" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnw-gx-SMk">
                                 <rect key="frame" x="254" y="430" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="46" id="RV0-Og-IMf"/>
                                 </constraints>
@@ -36,7 +35,6 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Z9-uq-FxU">
                                 <rect key="frame" x="66" y="268" width="189" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login Renren">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -94,7 +92,6 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pWr-pT-TcY">
                                 <rect key="frame" x="254" y="138" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="46" id="nJF-47-Nxv"/>
                                 </constraints>
@@ -107,14 +104,12 @@
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lrB-JX-TjE">
                                 <rect key="frame" x="40" y="176" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egR-6g-YOT">
                                 <rect key="frame" x="20" y="138" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="gUy-CP-ZBf"/>
                                     <constraint firstAttribute="width" constant="46" id="nsV-Br-DzN"/>
@@ -126,21 +121,8 @@
                                     <action selector="choosePhotoButtonPressed:" destination="F5R-9B-N94" eventType="touchUpInside" id="mYi-zE-Fgo"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mwQ-am-Wxq">
-                                <rect key="frame" x="20" y="313" width="63" height="61"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="63" id="Wer-en-dMq"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="63" id="gqB-vt-J1o"/>
-                                </constraints>
-                                <state key="normal" image="fblogo"/>
-                                <connections>
-                                    <action selector="chooseFBButtonPressed:" destination="F5R-9B-N94" eventType="touchUpInside" id="Bra-lE-Ga8"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W2W-Zy-6v3">
                                 <rect key="frame" x="128" y="312" width="64" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="renlogo">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -150,12 +132,32 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D9J-Y5-gMN">
                                 <rect key="frame" x="233" y="311" width="67" height="64"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="wxlogo">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="chooseWXButtonPressed:" destination="F5R-9B-N94" eventType="touchUpInside" id="iWD-W8-puU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mwQ-am-Wxq">
+                                <rect key="frame" x="129" y="398" width="63" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="63" id="ck8-tT-mMZ"/>
+                                </constraints>
+                                <state key="normal" image="fblogo"/>
+                                <connections>
+                                    <action selector="chooseFBButtonPressed:" destination="F5R-9B-N94" eventType="touchUpInside" id="Bra-lE-Ga8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dON-A4-c7X">
+                                <rect key="frame" x="20" y="312" width="59" height="63"/>
+                                <gestureRecognizers/>
+                                <state key="normal" title="Button" image="weibologo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dragWBButton:" destination="F5R-9B-N94" eventType="touchDragExit" id="AvI-0R-kS9"/>
+                                    <outletCollection property="gestureRecognizers" destination="BnH-mC-mjw" appends="YES" id="5gQ-dD-B9b"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -167,9 +169,10 @@
                             <constraint firstItem="lrB-JX-TjE" firstAttribute="centerY" secondItem="6Te-nO-DD5" secondAttribute="centerY" id="BC7-sg-ZUl"/>
                             <constraint firstItem="lrB-JX-TjE" firstAttribute="leading" secondItem="6Te-nO-DD5" secondAttribute="leading" constant="40" id="FPK-Kb-X3N"/>
                             <constraint firstItem="D9J-Y5-gMN" firstAttribute="leading" secondItem="W2W-Zy-6v3" secondAttribute="trailing" constant="41" id="G9Z-Gs-gZj"/>
+                            <constraint firstAttribute="bottom" secondItem="mwQ-am-Wxq" secondAttribute="bottom" constant="20" symbolic="YES" id="HqO-lk-uod"/>
                             <constraint firstItem="egR-6g-YOT" firstAttribute="leading" secondItem="6Te-nO-DD5" secondAttribute="leading" constant="20" symbolic="YES" id="JyB-bW-H0w"/>
-                            <constraint firstItem="egR-6g-YOT" firstAttribute="leading" secondItem="mwQ-am-Wxq" secondAttribute="leading" id="LFT-Jq-eFP"/>
-                            <constraint firstItem="mwQ-am-Wxq" firstAttribute="bottom" secondItem="W2W-Zy-6v3" secondAttribute="bottom" id="OoB-2O-RFn"/>
+                            <constraint firstItem="mwQ-am-Wxq" firstAttribute="trailing" secondItem="W2W-Zy-6v3" secondAttribute="trailing" id="NcD-vX-aDN"/>
+                            <constraint firstItem="mwQ-am-Wxq" firstAttribute="top" secondItem="W2W-Zy-6v3" secondAttribute="bottom" constant="24" id="Thf-Qd-TBg"/>
                             <constraint firstItem="D9J-Y5-gMN" firstAttribute="trailing" secondItem="pWr-pT-TcY" secondAttribute="trailing" id="UAy-c3-0OZ"/>
                             <constraint firstItem="W2W-Zy-6v3" firstAttribute="top" secondItem="lrB-JX-TjE" secondAttribute="bottom" constant="8" symbolic="YES" id="Vor-YA-XsT"/>
                             <constraint firstAttribute="trailing" secondItem="pWr-pT-TcY" secondAttribute="trailing" constant="20" symbolic="YES" id="Yha-44-nJc"/>
@@ -178,16 +181,17 @@
                             <constraint firstItem="lrB-JX-TjE" firstAttribute="top" secondItem="egR-6g-YOT" secondAttribute="bottom" constant="8" symbolic="YES" id="jRN-dn-Tky"/>
                             <constraint firstItem="zQw-4f-T68" firstAttribute="top" secondItem="D9J-Y5-gMN" secondAttribute="bottom" constant="105" id="nfh-TX-oAX"/>
                             <constraint firstItem="D9J-Y5-gMN" firstAttribute="top" secondItem="lrB-JX-TjE" secondAttribute="bottom" constant="7" id="sO6-WC-cWW"/>
-                            <constraint firstItem="W2W-Zy-6v3" firstAttribute="leading" secondItem="mwQ-am-Wxq" secondAttribute="trailing" constant="45" id="vce-yE-0vE"/>
-                            <constraint firstItem="mwQ-am-Wxq" firstAttribute="centerY" secondItem="W2W-Zy-6v3" secondAttribute="centerY" id="wZn-kW-5Rf"/>
+                            <constraint firstItem="mwQ-am-Wxq" firstAttribute="centerX" secondItem="W2W-Zy-6v3" secondAttribute="centerX" id="sOr-lp-Ldb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Hr7-47-488"/>
                     <connections>
                         <outlet property="TextView" destination="lrB-JX-TjE" id="TDi-xa-OLi"/>
+                        <outlet property="wbButton" destination="dON-A4-c7X" id="QWz-YQ-AUo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z2u-gJ-qxt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="BnH-mC-mjw"/>
             </objects>
             <point key="canvasLocation" x="332" y="127"/>
         </scene>
@@ -195,6 +199,7 @@
     <resources>
         <image name="fblogo" width="151" height="146"/>
         <image name="renlogo" width="300" height="300"/>
+        <image name="weibologo" width="512" height="512"/>
         <image name="wxlogo" width="300" height="285"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

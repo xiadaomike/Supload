@@ -13,6 +13,7 @@
 @interface PostViewController () <UIImagePickerControllerDelegate,UINavigationControllerDelegate, RennHttpRequestDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextView *TextView;
+@property (weak, nonatomic) IBOutlet UIButton *wbButton;
 
 @property (strong, nonatomic) NSMutableArray *imageList;
 @property  (strong, nonatomic) NSMutableArray *FBphotIDlist;
@@ -27,20 +28,29 @@
 
 
 @implementation PostViewController
+
 -(void) viewDidLoad {
     self.FBChosen = true;
     self.WXChosen = true;
     self.RenChosen = true;
 }
 
--(void)request:(RennHttpRequest *)request responseWithData:(NSData *)data {
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.TextView resignFirstResponder];
+    
 }
 
--(void)request:(RennHttpRequest *)request failWithError:(NSError *)error {
-
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    UIImage *img = [info objectForKey:UIImagePickerControllerOriginalImage];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.imageList addObject:img];
+    NSLog(@"%lu photos in imageList", (unsigned long)[self.imageList count]);
 }
 
+
+#pragma mark properties
 
 -(NSMutableArray *)FBphotIDlist{
     if (!_FBphotIDlist) {
@@ -56,21 +66,9 @@
     return _imageList;
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    [self.TextView resignFirstResponder];
-    
-}
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    UIImage *img = [info objectForKey:UIImagePickerControllerOriginalImage];
-    [self dismissViewControllerAnimated:YES completion:nil];
-    [self.imageList addObject:img];
-    NSLog(@"%d photos in imageList", [self.imageList count]);
-    
-    
-}
 
+#pragma mark button-interactions
 
 - (IBAction)chooseFBButtonPressed:(UIButton *)sender {
     if (self.FBChosen) {
@@ -168,7 +166,7 @@
             if (!error) {
                 NSLog(@"sucessfully request update photo");
                 [self.FBphotIDlist addObject:[result objectForKey:@"id"]];
-                NSLog(@"%d photoids in the list", [self.FBphotIDlist count]);
+                NSLog(@"%lu photoids in the list", (unsigned long)[self.FBphotIDlist count]);
                 [self addFBLinkMessageToPhoto];
             }else{
                 NSLog(@"failed to update photo, error %@",error.description);
@@ -182,7 +180,7 @@
 
 -(void) addFBLinkMessageToPhoto{
     NSString *message=self.TextView.text;
-    NSLog(@"I reached here, %d photoids in list",[self.FBphotIDlist count]);
+    NSLog(@"I reached here, %lu photoids in list",(unsigned long)[self.FBphotIDlist count]);
     for (NSString *photoid in self.FBphotIDlist) {
         NSString *graphPath = [NSString stringWithFormat:@"/%@",photoid];
         NSDictionary <FBGraphObject> *params =[FBGraphObject graphObject];
@@ -190,7 +188,7 @@
 
         [FBRequestConnection startForPostWithGraphPath:graphPath graphObject:params completionHandler: ^(FBRequestConnection *connection, id result, NSError *error) {
             if (!error) {
-                NSLog(@"sucessfully link message to photo,%d ids left",[self.FBphotIDlist count]);
+                NSLog(@"sucessfully link message to photo,%lu ids left",(unsigned long)[self.FBphotIDlist count]);
                 
 
             }else{
@@ -226,6 +224,15 @@
 
 
 #pragma mark Renren
+
+
+-(void)request:(RennHttpRequest *)request responseWithData:(NSData *)data {
+    
+}
+
+-(void)request:(RennHttpRequest *)request failWithError:(NSError *)error {
+    
+}
 
 -(void) updateRennMessageOnlyStatus {
     PutStatusParam *param = [[PutStatusParam alloc] init];

@@ -9,8 +9,9 @@
 #import "LoginViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import "RennSDK/RennSDK.h"
+#import "WXApi.h"
 
-@interface LoginViewController () <RennLoginDelegate>
+@interface LoginViewController () <RennLoginDelegate, WXApiDelegate>
 @property (weak, nonatomic) IBOutlet UIView *fbLoginView;
 @property (weak, nonatomic) IBOutlet UIButton *RenrenLoginButton;
 
