@@ -20,7 +20,6 @@
 		1831479719B63A5B00B00F46 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1831477919B63A5B00B00F46 /* UIKit.framework */; };
 		1831479F19B63A5B00B00F46 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1831479D19B63A5B00B00F46 /* InfoPlist.strings */; };
 		183147A119B63A5B00B00F46 /* SuploadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 183147A019B63A5B00B00F46 /* SuploadTests.m */; };
-		183147AB19B63BF600B00F46 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183147AA19B63BF600B00F46 /* FacebookSDK.framework */; };
 		183147AE19B63C2600B00F46 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183147AD19B63C2600B00F46 /* PostViewController.m */; };
 		183147B119B63C4700B00F46 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183147B019B63C4700B00F46 /* LoginViewController.m */; };
 		183F5B7F1A21020800B9F22B /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 183F5B7C1A21020800B9F22B /* libWeiboSDK.a */; };
@@ -28,6 +27,7 @@
 		184DA6E619C789900039C58E /* RennSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184DA6E519C789900039C58E /* RennSDK.framework */; };
 		1891094C19C75DEC00AA51A6 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891094B19C75DEC00AA51A6 /* libsqlite3.0.dylib */; };
 		18A0599019BE2E5C00FB925B /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A0598D19BE2E5C00FB925B /* libWeChatSDK.a */; };
+		18AB1EBF1A242D1100BDB696 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18AB1EBE1A242D1100BDB696 /* FacebookSDK.framework */; };
 		18EE163219D5D12B00BAA98A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18EE163119D5D12B00BAA98A /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -60,7 +60,6 @@
 		1831479C19B63A5B00B00F46 /* SuploadTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SuploadTests-Info.plist"; sourceTree = "<group>"; };
 		1831479E19B63A5B00B00F46 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		183147A019B63A5B00B00F46 /* SuploadTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SuploadTests.m; sourceTree = "<group>"; };
-		183147AA19B63BF600B00F46 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		183147AC19B63C2600B00F46 /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostViewController.h; sourceTree = "<group>"; };
 		183147AD19B63C2600B00F46 /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
 		183147AF19B63C4700B00F46 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -73,6 +72,7 @@
 		18A0598D19BE2E5C00FB925B /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		18A0598E19BE2E5C00FB925B /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		18A0598F19BE2E5C00FB925B /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		18AB1EBE1A242D1100BDB696 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		18EE163119D5D12B00BAA98A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,8 +85,8 @@
 				184DA6E619C789900039C58E /* RennSDK.framework in Frameworks */,
 				1831477819B63A5B00B00F46 /* CoreGraphics.framework in Frameworks */,
 				183F5B7F1A21020800B9F22B /* libWeiboSDK.a in Frameworks */,
-				183147AB19B63BF600B00F46 /* FacebookSDK.framework in Frameworks */,
 				1831477A19B63A5B00B00F46 /* UIKit.framework in Frameworks */,
+				18AB1EBF1A242D1100BDB696 /* FacebookSDK.framework in Frameworks */,
 				1831477619B63A5B00B00F46 /* Foundation.framework in Frameworks */,
 				18A0599019BE2E5C00FB925B /* libWeChatSDK.a in Frameworks */,
 			);
@@ -129,8 +129,8 @@
 			isa = PBXGroup;
 			children = (
 				1891094B19C75DEC00AA51A6 /* libsqlite3.0.dylib */,
+				18AB1EBE1A242D1100BDB696 /* FacebookSDK.framework */,
 				184DA6E519C789900039C58E /* RennSDK.framework */,
-				183147AA19B63BF600B00F46 /* FacebookSDK.framework */,
 				1831477519B63A5B00B00F46 /* Foundation.framework */,
 				1831477719B63A5B00B00F46 /* CoreGraphics.framework */,
 				1831477919B63A5B00B00F46 /* UIKit.framework */,
@@ -433,6 +433,7 @@
 					"$(inherited)",
 					/Users/apple/Documents/FacebookSDK,
 					"$(PROJECT_DIR)/Supload",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Supload/Supload-Prefix.pch";
@@ -458,6 +459,7 @@
 					"$(inherited)",
 					/Users/apple/Documents/FacebookSDK,
 					"$(PROJECT_DIR)/Supload",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Supload/Supload-Prefix.pch";
