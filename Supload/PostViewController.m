@@ -166,7 +166,7 @@
             if (!error) {
                 NSLog(@"sucessfully request update photo");
                 [self.FBphotIDlist addObject:[result objectForKey:@"id"]];
-                NSLog(@"%lu photoids in the list", (unsigned long)[self.FBphotIDlist count]);
+                NSLog(@"%lu photoids in the listh", (unsigned long)[self.FBphotIDlist count]);
                 [self addFBLinkMessageToPhoto];
             }else{
                 NSLog(@"failed to update photo, error %@",error.description);
