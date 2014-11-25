@@ -134,7 +134,7 @@
 
     if ([self.imageList count]==0) {
         if (self.FBChosen) [self updateFBMessageOnlyStatus];
-        if (self.WXChosen) [self updateWXMessageOnlyStatus];
+        if (self.WXChosen) [self updateWXStatusOnly];
         if (self.RenChosen) [self updateRennMessageOnlyStatus];
         [self.imageList removeAllObjects];
         
@@ -145,7 +145,7 @@
             [connection start];
         }
         if (self.WXChosen) {
-            
+            [self updateWXWithPhotos];
         }
         if (self.RenChosen) {
             [self updatePhotoToRenn];
@@ -220,10 +220,31 @@
 
 #pragma mark WX
 
--(void)updateWXMessageOnlyStatus {
-    
+-(void)updateWXStatusOnly {
+    SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
+    req.text = self.TextView.text;
+    req.bText = YES;
+    req.scene = WXSceneSession;
+    [WXApi sendReq:req];
 }
 
+-(void)updateWXWithPhotos {
+    WXMediaMessage *message = [WXMediaMessage message];
+    message.title = @"StatusUpdate";
+    message.description = self.TextView.text;
+    [message setThumbImage:[UIImage imageNamed:@"pikachu.png"]];
+
+    WXImageObject *ext = [WXImageObject object];
+    ext.imageData = [NSKeyedArchiver archivedDataWithRootObject:self.imageList];
+
+    message.mediaObject = ext;
+    
+    SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
+    req.bText = NO;
+    req.message = message;
+    req.scene = WXSceneTimeline;
+    [WXApi sendReq:req];
+}
 
 #pragma mark Renren
 

@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WXApi.h"
+@interface AppDelegate : UIResponder <UIApplicationDelegate, WXApiDelegate>
+@end
 
 @interface PostViewController : UIViewController
-
 @end
