@@ -10,6 +10,7 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import "RennSDK/RennSDK.h"
 
+
 @interface PostViewController () <UIImagePickerControllerDelegate,UINavigationControllerDelegate, RennHttpRequestDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextView *TextView;
@@ -35,14 +36,37 @@
     self.RenChosen = true;
 }
 
-- (IBAction)dragButton:(UIPanGestureRecognizer *)sender {
+
+-(void)pan:(UIPanGestureRecognizer *)recognizer {
+    if (recognizer.state == UIGestureRecognizerStateChanged ||
+        recognizer.state == UIGestureRecognizerStateBegan) {
+        
+        UIView *draggedButton = recognizer.view;
+        CGPoint translation = [recognizer translationInView:self.view];
+        
+        CGRect newButtonFrame = draggedButton.frame;
+        newButtonFrame.origin.y = MAX(newButtonFrame.origin.y+translation.y, self.view.frame.size.height*5/8);
+        draggedButton.frame = newButtonFrame;
+        [recognizer setTranslation:CGPointZero inView:self.view];
+        if (draggedButton.frame.origin.y == self.view.frame.size.height*5/8) {
+            [logInOutWeibo];
+            
+        }
+    }
+    if (recognizer.state == UIGestureRecognizerStateEnded) {
+        UIView *draggedButton = recognizer.view;
+        [UIView animateWithDuration:0.5
+                              delay:0.0
+                            options:UIViewAnimationOptionCurveEaseIn
+                         animations:^{
+                             CGRect newButtonFrame = draggedButton.frame;
+                             newButtonFrame.origin.y = self.view.frame.size.height*3/4;
+                             draggedButton.frame = newButtonFrame;
+                         }
+                         completion:^(BOOL fin) {}];
+    }
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    [self.TextView resignFirstResponder];
-    
-}
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     UIImage *img = [info objectForKey:UIImagePickerControllerOriginalImage];
@@ -318,7 +342,10 @@
 
 }
 
-
+#pragma mark Weibo
+-(void)logInOutWeibo {
+    
+}
 
 
 

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -93,7 +94,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pWr-pT-TcY">
                                 <rect key="frame" x="254" y="138" width="46" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="46" id="nJF-47-Nxv"/>
+                                    <constraint firstAttribute="width" constant="46" id="4hH-JQ-FEQ"/>
                                 </constraints>
                                 <state key="normal" title="Post">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -111,8 +112,8 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egR-6g-YOT">
                                 <rect key="frame" x="20" y="138" width="46" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="gUy-CP-ZBf"/>
-                                    <constraint firstAttribute="width" constant="46" id="nsV-Br-DzN"/>
+                                    <constraint firstAttribute="height" constant="30" id="MTF-v9-TDR"/>
+                                    <constraint firstAttribute="width" constant="46" id="pgv-N7-qnP"/>
                                 </constraints>
                                 <state key="normal" title="Photo">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -141,47 +142,50 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mwQ-am-Wxq">
                                 <rect key="frame" x="129" y="398" width="63" height="62"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="63" id="ck8-tT-mMZ"/>
-                                </constraints>
                                 <state key="normal" image="fblogo"/>
                                 <connections>
                                     <action selector="chooseFBButtonPressed:" destination="F5R-9B-N94" eventType="touchUpInside" id="Bra-lE-Ga8"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dON-A4-c7X">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dON-A4-c7X">
                                 <rect key="frame" x="20" y="312" width="59" height="63"/>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="59" id="ry5-7N-FX8"/>
+                                </constraints>
                                 <state key="normal" title="Button" image="weibologo">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="dragWBButton:" destination="F5R-9B-N94" eventType="touchDragExit" id="AvI-0R-kS9"/>
-                                    <outletCollection property="gestureRecognizers" destination="BnH-mC-mjw" appends="YES" id="5gQ-dD-B9b"/>
+                                    <outletCollection property="gestureRecognizers" destination="YUR-rO-bQ8" appends="YES" id="4Dm-Hh-vYd"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="W2W-Zy-6v3" firstAttribute="centerY" secondItem="D9J-Y5-gMN" secondAttribute="centerY" id="2Co-2t-2Qb"/>
-                            <constraint firstItem="W2W-Zy-6v3" firstAttribute="centerX" secondItem="6Te-nO-DD5" secondAttribute="centerX" id="4CV-rn-iSa"/>
-                            <constraint firstItem="pWr-pT-TcY" firstAttribute="baseline" secondItem="egR-6g-YOT" secondAttribute="baseline" id="4dy-ge-hGk"/>
-                            <constraint firstItem="lrB-JX-TjE" firstAttribute="centerY" secondItem="6Te-nO-DD5" secondAttribute="centerY" id="BC7-sg-ZUl"/>
-                            <constraint firstItem="lrB-JX-TjE" firstAttribute="leading" secondItem="6Te-nO-DD5" secondAttribute="leading" constant="40" id="FPK-Kb-X3N"/>
-                            <constraint firstItem="D9J-Y5-gMN" firstAttribute="leading" secondItem="W2W-Zy-6v3" secondAttribute="trailing" constant="41" id="G9Z-Gs-gZj"/>
-                            <constraint firstAttribute="bottom" secondItem="mwQ-am-Wxq" secondAttribute="bottom" constant="20" symbolic="YES" id="HqO-lk-uod"/>
-                            <constraint firstItem="egR-6g-YOT" firstAttribute="leading" secondItem="6Te-nO-DD5" secondAttribute="leading" constant="20" symbolic="YES" id="JyB-bW-H0w"/>
-                            <constraint firstItem="mwQ-am-Wxq" firstAttribute="trailing" secondItem="W2W-Zy-6v3" secondAttribute="trailing" id="NcD-vX-aDN"/>
-                            <constraint firstItem="mwQ-am-Wxq" firstAttribute="top" secondItem="W2W-Zy-6v3" secondAttribute="bottom" constant="24" id="Thf-Qd-TBg"/>
-                            <constraint firstItem="D9J-Y5-gMN" firstAttribute="trailing" secondItem="pWr-pT-TcY" secondAttribute="trailing" id="UAy-c3-0OZ"/>
-                            <constraint firstItem="W2W-Zy-6v3" firstAttribute="top" secondItem="lrB-JX-TjE" secondAttribute="bottom" constant="8" symbolic="YES" id="Vor-YA-XsT"/>
-                            <constraint firstAttribute="trailing" secondItem="pWr-pT-TcY" secondAttribute="trailing" constant="20" symbolic="YES" id="Yha-44-nJc"/>
-                            <constraint firstItem="lrB-JX-TjE" firstAttribute="centerX" secondItem="W2W-Zy-6v3" secondAttribute="centerX" id="Yxh-0o-Y7Z"/>
-                            <constraint firstItem="egR-6g-YOT" firstAttribute="top" secondItem="ekz-Ky-Yd0" secondAttribute="bottom" constant="74" id="a8e-ho-c5O"/>
-                            <constraint firstItem="lrB-JX-TjE" firstAttribute="top" secondItem="egR-6g-YOT" secondAttribute="bottom" constant="8" symbolic="YES" id="jRN-dn-Tky"/>
-                            <constraint firstItem="zQw-4f-T68" firstAttribute="top" secondItem="D9J-Y5-gMN" secondAttribute="bottom" constant="105" id="nfh-TX-oAX"/>
-                            <constraint firstItem="D9J-Y5-gMN" firstAttribute="top" secondItem="lrB-JX-TjE" secondAttribute="bottom" constant="7" id="sO6-WC-cWW"/>
-                            <constraint firstItem="mwQ-am-Wxq" firstAttribute="centerX" secondItem="W2W-Zy-6v3" secondAttribute="centerX" id="sOr-lp-Ldb"/>
+                            <constraint firstItem="egR-6g-YOT" firstAttribute="leading" secondItem="6Te-nO-DD5" secondAttribute="leadingMargin" constant="4" id="0Ra-Co-b4B"/>
+                            <constraint firstItem="dON-A4-c7X" firstAttribute="top" secondItem="lrB-JX-TjE" secondAttribute="bottom" constant="8" symbolic="YES" id="2Ux-oJ-lRe"/>
+                            <constraint firstItem="mwQ-am-Wxq" firstAttribute="trailing" secondItem="W2W-Zy-6v3" secondAttribute="trailing" id="B4m-ms-ICc"/>
+                            <constraint firstItem="pWr-pT-TcY" firstAttribute="baseline" secondItem="egR-6g-YOT" secondAttribute="baseline" id="Gd6-ZW-5e2"/>
+                            <constraint firstItem="lrB-JX-TjE" firstAttribute="centerX" secondItem="W2W-Zy-6v3" secondAttribute="centerX" id="H2j-KE-hQv"/>
+                            <constraint firstItem="egR-6g-YOT" firstAttribute="leading" secondItem="dON-A4-c7X" secondAttribute="leading" id="HoA-TM-2Xv"/>
+                            <constraint firstItem="egR-6g-YOT" firstAttribute="top" secondItem="ekz-Ky-Yd0" secondAttribute="bottom" constant="74" id="NTJ-9z-Bhg"/>
+                            <constraint firstAttribute="bottom" secondItem="mwQ-am-Wxq" secondAttribute="bottom" constant="20" symbolic="YES" id="NYO-8c-P4J"/>
+                            <constraint firstItem="lrB-JX-TjE" firstAttribute="top" secondItem="egR-6g-YOT" secondAttribute="bottom" constant="8" symbolic="YES" id="QbS-PP-70I"/>
+                            <constraint firstItem="lrB-JX-TjE" firstAttribute="centerY" secondItem="6Te-nO-DD5" secondAttribute="centerY" id="TVd-XJ-Myt"/>
+                            <constraint firstItem="W2W-Zy-6v3" firstAttribute="centerX" secondItem="mwQ-am-Wxq" secondAttribute="centerX" id="Ubn-5q-5cM"/>
+                            <constraint firstItem="D9J-Y5-gMN" firstAttribute="leading" secondItem="W2W-Zy-6v3" secondAttribute="trailing" constant="41" id="Xlx-de-gBO"/>
+                            <constraint firstItem="D9J-Y5-gMN" firstAttribute="bottom" secondItem="dON-A4-c7X" secondAttribute="bottom" id="cwK-Tn-p3K"/>
+                            <constraint firstItem="lrB-JX-TjE" firstAttribute="centerX" secondItem="6Te-nO-DD5" secondAttribute="centerX" id="dSm-3h-m2U"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pWr-pT-TcY" secondAttribute="trailing" constant="4" id="fD6-Jo-Ck8"/>
+                            <constraint firstItem="zQw-4f-T68" firstAttribute="top" secondItem="dON-A4-c7X" secondAttribute="bottom" constant="105" id="hOL-JC-1kb"/>
+                            <constraint firstItem="dON-A4-c7X" firstAttribute="centerY" secondItem="W2W-Zy-6v3" secondAttribute="centerY" id="koV-JA-mKF"/>
+                            <constraint firstItem="W2W-Zy-6v3" firstAttribute="leading" secondItem="dON-A4-c7X" secondAttribute="trailing" constant="49" id="oyE-sD-BRJ"/>
+                            <constraint firstItem="W2W-Zy-6v3" firstAttribute="top" secondItem="dON-A4-c7X" secondAttribute="top" id="qbt-Bq-uM9"/>
+                            <constraint firstItem="mwQ-am-Wxq" firstAttribute="top" secondItem="W2W-Zy-6v3" secondAttribute="bottom" constant="24" id="rJ1-qc-rrl"/>
+                            <constraint firstItem="lrB-JX-TjE" firstAttribute="leading" secondItem="6Te-nO-DD5" secondAttribute="leadingMargin" constant="24" id="sQo-ta-54I"/>
+                            <constraint firstItem="W2W-Zy-6v3" firstAttribute="centerY" secondItem="D9J-Y5-gMN" secondAttribute="centerY" id="xnt-S7-2hZ"/>
+                            <constraint firstItem="pWr-pT-TcY" firstAttribute="trailing" secondItem="D9J-Y5-gMN" secondAttribute="trailing" id="zI2-4F-r2Q"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Hr7-47-488"/>
@@ -191,9 +195,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z2u-gJ-qxt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="BnH-mC-mjw">
+                <panGestureRecognizer minimumNumberOfTouches="1" id="YUR-rO-bQ8">
                     <connections>
-                        <action selector="dragButton:" destination="F5R-9B-N94" id="PHa-4W-uaU"/>
+                        <action selector="pan:" destination="F5R-9B-N94" id="bGd-AZ-1CC"/>
                     </connections>
                 </panGestureRecognizer>
             </objects>
