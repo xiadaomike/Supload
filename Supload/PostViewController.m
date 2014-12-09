@@ -118,7 +118,6 @@
     [imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     [imagePicker setDelegate:self];
     [self presentViewController:imagePicker animated:YES completion:nil];
-    
 }
 
 - (IBAction)PostButtonPressed:(UIButton *)sender {
@@ -221,22 +220,34 @@
 #pragma mark WX
 
 -(void)updateWXStatusOnly {
+    if (![WXApi isWXAppInstalled]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Wechat app is not installed" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+        return;
+    }
     SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
     req.text = self.TextView.text;
     req.bText = YES;
-    req.scene = WXSceneSession;
+    req.scene = WXSceneTimeline;
     [WXApi sendReq:req];
 }
 
 -(void)updateWXWithPhotos {
+    if (![WXApi isWXAppInstalled]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Wechat app is not installed" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+        return;
+    }
+    
     WXMediaMessage *message = [WXMediaMessage message];
     message.title = @"StatusUpdate";
     message.description = self.TextView.text;
     [message setThumbImage:[UIImage imageNamed:@"pikachu.png"]];
 
     WXImageObject *ext = [WXImageObject object];
-    ext.imageData = [NSKeyedArchiver archivedDataWithRootObject:self.imageList];
-
+    NSData *data = UIImageJPEGRepresentation(self.imageList[0], 0.8);
+    ext.imageData = data;
+    
     message.mediaObject = ext;
     
     SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
