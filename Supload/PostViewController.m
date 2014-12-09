@@ -7,12 +7,11 @@
 //
 
 #import "PostViewController.h"
-#import <FacebookSDK/FacebookSDK.h>
-#import "RennSDK/RennSDK.h"
+#import "SuploadAppDelegate.h"
 
 
-@interface PostViewController () <UIImagePickerControllerDelegate,UINavigationControllerDelegate, RennHttpRequestDelegate>
 
+@interface PostViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *TextView;
 @property (weak, nonatomic) IBOutlet UIButton *wbButton;
 
@@ -21,11 +20,10 @@
 @property BOOL FBChosen;
 @property BOOL WXChosen;
 @property BOOL RenChosen;
-
+@property BOOL WBLoggedIn;
+@property BOOL WBChosen;
 
 @end
-
-
 
 
 @implementation PostViewController
@@ -34,7 +32,10 @@
     self.FBChosen = true;
     self.WXChosen = true;
     self.RenChosen = true;
+    self.WBLoggedIn = false;
+
 }
+
 
 
 -(void)pan:(UIPanGestureRecognizer *)recognizer {
@@ -48,13 +49,16 @@
         newButtonFrame.origin.y = MAX(newButtonFrame.origin.y+translation.y, self.view.frame.size.height*5/8);
         draggedButton.frame = newButtonFrame;
         [recognizer setTranslation:CGPointZero inView:self.view];
-        if (draggedButton.frame.origin.y == self.view.frame.size.height*5/8) {
-            [logInOutWeibo];
-            
-        }
+
     }
     if (recognizer.state == UIGestureRecognizerStateEnded) {
         UIView *draggedButton = recognizer.view;
+        if (draggedButton.frame.origin.y == self.view.frame.size.height*5/8) {
+            if ([draggedButton.restorationIdentifier isEqualToString:@"WB"]) {
+                [self logInOutWeibo];
+            }
+            
+        }
         [UIView animateWithDuration:0.5
                               delay:0.0
                             options:UIViewAnimationOptionCurveEaseIn
@@ -64,6 +68,7 @@
                              draggedButton.frame = newButtonFrame;
                          }
                          completion:^(BOOL fin) {}];
+
     }
 }
 
@@ -134,6 +139,17 @@
 
 }
 
+- (IBAction)chooseWBButtonPressed:(UIButton *)sender {
+    if (self.WBChosen) {
+        sender.highlighted = false;
+        [sender setImage:[UIImage imageNamed:@"pikachu"] forState:UIControlStateNormal];
+        self.WBChosen = false;
+    } else {
+        [sender setHighlighted:true];
+        [sender setImage:[UIImage imageNamed:@"wblogo"] forState:UIControlStateNormal];
+        self.WBChosen = true;
+    }
+}
 
 
 
@@ -148,6 +164,7 @@
 - (IBAction)PostButtonPressed:(UIButton *)sender {
     [self publishStory];
     [[self TextView] resignFirstResponder];
+    [self.imageList removeAllObjects];
 
 
 }
@@ -160,12 +177,15 @@
         if (self.FBChosen) [self updateFBMessageOnlyStatus];
         if (self.WXChosen) [self updateWXMessageOnlyStatus];
         if (self.RenChosen) [self updateRennMessageOnlyStatus];
-        [self.imageList removeAllObjects];
+        if (self.WBChosen) {
+            
+        }
+        
         
     }else {
         if (self.FBChosen) {
-        FBRequestConnection *connection = [[FBRequestConnection alloc] init];
-        [self addUploadPhotoRequestsToFBConnection:connection];
+            FBRequestConnection *connection = [[FBRequestConnection alloc] init];
+            [self addUploadPhotoRequestsToFBConnection:connection];
             [connection start];
         }
         if (self.WXChosen) {
@@ -174,6 +194,11 @@
         if (self.RenChosen) {
             [self updatePhotoToRenn];
         }
+        
+        if (self.WBChosen) {
+            
+        }
+        
  
     }}
 
@@ -311,10 +336,45 @@
 }
 
 #pragma mark Weibo
+
 -(void)logInOutWeibo {
-    
+    if (self.WBLoggedIn) {
+        SuploadAppDelegate *myDelegate =(SuploadAppDelegate*)[[UIApplication sharedApplication] delegate];
+        [WeiboSDK logOutWithToken:myDelegate.weibotoken delegate:self withTag:@"logout"];
+        self.WBLoggedIn = false;
+    } else {
+        WBAuthorizeRequest *request = [WBAuthorizeRequest request];
+        request.redirectURI = WeiboRedirectURI;
+        request.scope = @"direct_messages_write";
+        request.userInfo = @{@"SSO_From": @"PostViewController",};
+        [WeiboSDK sendRequest:request];
+        self.WBLoggedIn = true;
+    }
 }
 
+- (void)request:(WBHttpRequest *)request didFinishLoadingWithResult:(NSString *)result
+{
 
+    if ([[request tag] isEqualToString:@"logout"] ) {
+        NSString *title = nil;
+        UIAlertView *alert = nil;
+        title = @"成功登出微博账号";
+        alert = [[UIAlertView alloc] initWithTitle:title
+                                           message:nil
+                                          delegate:nil
+                                 cancelButtonTitle:@"确定"
+                                 otherButtonTitles:nil];
+        [alert show];
+
+    }
+
+}
+
+-(void)publishWeiboText {
+    SuploadAppDelegate *myDelegate =(SuploadAppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSDictionary *d = [NSDictionary dictionaryWithObjectsAndKeys:myDelegate.weibotoken, @"acess_token", self.TextView.description, @"status", nil];
+
+    [WBHttpRequest requestWithAccessToken:myDelegate.weibotoken url:@"https://api.weibo.com/2/statuses/update.json" httpMethod:@"POST" params:d delegate:self withTag:@"Text"];
+}
 
 @end

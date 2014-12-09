@@ -17,4 +17,4 @@
 
 
 #define WeiboAppKey         @"1997768762"
-#define WeiboRedirectURI    @"http://"
+#define WeiboRedirectURI    @"https://api.weibo.com/oauth2/default.html"

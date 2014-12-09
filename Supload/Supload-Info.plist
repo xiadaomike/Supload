@@ -9,7 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIdentifier</key>
-	<string>Jingzhao.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>Jingzhao.$(PRODUCT_NAME:rfc1034identifier)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -50,6 +50,18 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>rm271797Jingzhao.${PRODUCT_NAME:rfc1034identifier}</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLIconFile</key>
+			<string></string>
+			<key>CFBundleURLName</key>
+			<string>WB</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wb1997768762</string>
 			</array>
 		</dict>
 	</array>

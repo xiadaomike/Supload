@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
+#import <FacebookSDK/FacebookSDK.h>
+#import "RennSDK/RennSDK.h"
 
 
-@interface LoginViewController : UIViewController
+@interface LoginViewController : UIViewController<RennLoginDelegate>
 
 @end

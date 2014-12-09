@@ -26,7 +26,6 @@
 		183F5B801A21020800B9F22B /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 183F5B7D1A21020800B9F22B /* WeiboSDK.bundle */; };
 		184DA6E619C789900039C58E /* RennSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184DA6E519C789900039C58E /* RennSDK.framework */; };
 		1891094C19C75DEC00AA51A6 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891094B19C75DEC00AA51A6 /* libsqlite3.0.dylib */; };
-		18A0599019BE2E5C00FB925B /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A0598D19BE2E5C00FB925B /* libWeChatSDK.a */; };
 		18AB1EBF1A242D1100BDB696 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18AB1EBE1A242D1100BDB696 /* FacebookSDK.framework */; };
 		18EE163219D5D12B00BAA98A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18EE163119D5D12B00BAA98A /* Images.xcassets */; };
 /* End PBXBuildFile section */
@@ -64,14 +63,11 @@
 		183147AD19B63C2600B00F46 /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
 		183147AF19B63C4700B00F46 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		183147B019B63C4700B00F46 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		183F5B7C1A21020800B9F22B /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
-		183F5B7D1A21020800B9F22B /* WeiboSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WeiboSDK.bundle; sourceTree = "<group>"; };
-		183F5B7E1A21020800B9F22B /* WeiboSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboSDK.h; sourceTree = "<group>"; };
+		183F5B7C1A21020800B9F22B /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWeiboSDK.a; path = libWeiboSDK/libWeiboSDK.a; sourceTree = "<group>"; };
+		183F5B7D1A21020800B9F22B /* WeiboSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = WeiboSDK.bundle; path = libWeiboSDK/WeiboSDK.bundle; sourceTree = "<group>"; };
+		183F5B7E1A21020800B9F22B /* WeiboSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeiboSDK.h; path = libWeiboSDK/WeiboSDK.h; sourceTree = "<group>"; };
 		184DA6E519C789900039C58E /* RennSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RennSDK.framework; path = Supload/RennSDK.framework; sourceTree = "<group>"; };
 		1891094B19C75DEC00AA51A6 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
-		18A0598D19BE2E5C00FB925B /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
-		18A0598E19BE2E5C00FB925B /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
-		18A0598F19BE2E5C00FB925B /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		18AB1EBE1A242D1100BDB696 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		18EE163119D5D12B00BAA98A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,7 +84,6 @@
 				1831477A19B63A5B00B00F46 /* UIKit.framework in Frameworks */,
 				18AB1EBF1A242D1100BDB696 /* FacebookSDK.framework in Frameworks */,
 				1831477619B63A5B00B00F46 /* Foundation.framework in Frameworks */,
-				18A0599019BE2E5C00FB925B /* libWeChatSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,9 +155,9 @@
 		1831477C19B63A5B00B00F46 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				18A0598D19BE2E5C00FB925B /* libWeChatSDK.a */,
-				18A0598E19BE2E5C00FB925B /* WXApi.h */,
-				18A0598F19BE2E5C00FB925B /* WXApiObject.h */,
+				183F5B7C1A21020800B9F22B /* libWeiboSDK.a */,
+				183F5B7D1A21020800B9F22B /* WeiboSDK.bundle */,
+				183F5B7E1A21020800B9F22B /* WeiboSDK.h */,
 				1831477D19B63A5B00B00F46 /* Supload-Info.plist */,
 				1831477E19B63A5B00B00F46 /* InfoPlist.strings */,
 				1831478119B63A5B00B00F46 /* main.m */,
@@ -192,9 +187,6 @@
 		183F5B7B1A21020800B9F22B /* libWeiboSDK */ = {
 			isa = PBXGroup;
 			children = (
-				183F5B7C1A21020800B9F22B /* libWeiboSDK.a */,
-				183F5B7D1A21020800B9F22B /* WeiboSDK.bundle */,
-				183F5B7E1A21020800B9F22B /* WeiboSDK.h */,
 			);
 			name = libWeiboSDK;
 			path = Supload/libWeiboSDK;
@@ -245,7 +237,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = Supload;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = supload;
 				TargetAttributes = {
 					1831479219B63A5B00B00F46 = {
@@ -387,6 +379,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -418,6 +411,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -426,7 +420,6 @@
 		183147A519B63A5B00B00F46 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -452,7 +445,6 @@
 		183147A619B63A5B00B00F46 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (

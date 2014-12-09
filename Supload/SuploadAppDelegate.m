@@ -18,7 +18,7 @@
 {
     // Override point for customization after application launch.
     [FBLoginView class];
-    [WXApi registerApp:@"wx3c8b5b6ca53158c6"];
+
     [WeiboSDK enableDebugMode:YES];
     [WeiboSDK registerApp:WeiboAppKey];
     
@@ -70,12 +70,14 @@
     NSLog(@"url scheme :%@",[url scheme]);
     if ([[url scheme] caseInsensitiveCompare:@"fb1487985811456376"] == NSOrderedSame){
         wasHandled = [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
-    } else if ([[url scheme] caseInsensitiveCompare:@"wx3c8b5b6ca53158c6"] == NSOrderedSame){
-        wasHandled = [WXApi handleOpenURL:url delegate:self];
-    } else if ([[url scheme] caseInsensitiveCompare:@"rm271797Jingzhao.${PRODUCT_NAME:rfc1034identifier}"]) {
+     //else if ([[url scheme] caseInsensitiveCompare:@"wx3c8b5b6ca53158c6"] == NSOrderedSame){
+       // wasHandled = [WXApi handleOpenURL:url delegate:self];
+    } else if ([[url scheme] caseInsensitiveCompare:@"rm271797Jingzhao.${PRODUCT_NAME:rfc1034identifier}"] == NSOrderedSame) {
         wasHandled = [RennClient  handleOpenURL:url];
+    } else if ([[url scheme] caseInsensitiveCompare:@"wb1997768762"] == NSOrderedSame) {
+        wasHandled = [WeiboSDK handleOpenURL:url delegate:self];
     }
-    
+
     //if (!wasHandled) other applications
     return wasHandled;
 }

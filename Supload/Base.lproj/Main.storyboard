@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="RMM-yn-gHR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="RMM-yn-gHR">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
@@ -147,16 +147,17 @@
                                     <action selector="chooseFBButtonPressed:" destination="F5R-9B-N94" eventType="touchUpInside" id="Bra-lE-Ga8"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dON-A4-c7X">
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="WB" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dON-A4-c7X">
                                 <rect key="frame" x="20" y="312" width="59" height="63"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="59" id="ry5-7N-FX8"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="weibologo">
+                                <state key="normal" title="Button" image="wblogo">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="chooseWBButtonPressed:" destination="F5R-9B-N94" eventType="touchUpInside" id="BeM-Xz-Y9Q"/>
                                     <outletCollection property="gestureRecognizers" destination="YUR-rO-bQ8" appends="YES" id="4Dm-Hh-vYd"/>
                                 </connections>
                             </button>
@@ -207,7 +208,7 @@
     <resources>
         <image name="fblogo" width="151" height="146"/>
         <image name="renlogo" width="300" height="300"/>
-        <image name="weibologo" width="512" height="512"/>
+        <image name="wblogo" width="512" height="512"/>
         <image name="wxlogo" width="300" height="285"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

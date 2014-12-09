@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface PostViewController : UIViewController
+#import <FacebookSDK/FacebookSDK.h>
+#import "RennSDK/RennSDK.h"
+#import "WeiboSDK.h"
+@interface PostViewController : UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate, RennHttpRequestDelegate, WBHttpRequestDelegate>
 
 @end
