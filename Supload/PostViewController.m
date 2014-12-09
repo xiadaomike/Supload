@@ -142,7 +142,6 @@
     [imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     [imagePicker setDelegate:self];
     [self presentViewController:imagePicker animated:YES completion:nil];
-    
 }
 
 - (IBAction)PostButtonPressed:(UIButton *)sender {
@@ -158,7 +157,7 @@
 
     if ([self.imageList count]==0) {
         if (self.FBChosen) [self updateFBMessageOnlyStatus];
-        if (self.WXChosen) [self updateWXMessageOnlyStatus];
+        if (self.WXChosen) [self updateWXStatusOnly];
         if (self.RenChosen) [self updateRennMessageOnlyStatus];
         [self.imageList removeAllObjects];
         
@@ -169,7 +168,7 @@
             [connection start];
         }
         if (self.WXChosen) {
-            
+            [self updateWXWithPhotos];
         }
         if (self.RenChosen) {
             [self updatePhotoToRenn];
@@ -244,10 +243,43 @@
 
 #pragma mark WX
 
--(void)updateWXMessageOnlyStatus {
-    
+-(void)updateWXStatusOnly {
+    if (![WXApi isWXAppInstalled]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Wechat app is not installed" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+        return;
+    }
+    SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
+    req.text = self.TextView.text;
+    req.bText = YES;
+    req.scene = WXSceneTimeline;
+    [WXApi sendReq:req];
 }
 
+-(void)updateWXWithPhotos {
+    if (![WXApi isWXAppInstalled]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Wechat app is not installed" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+        return;
+    }
+    
+    WXMediaMessage *message = [WXMediaMessage message];
+    message.title = @"StatusUpdate";
+    message.description = self.TextView.text;
+    [message setThumbImage:[UIImage imageNamed:@"pikachu.png"]];
+
+    WXImageObject *ext = [WXImageObject object];
+    NSData *data = UIImageJPEGRepresentation(self.imageList[0], 0.8);
+    ext.imageData = data;
+    
+    message.mediaObject = ext;
+    
+    SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
+    req.bText = NO;
+    req.message = message;
+    req.scene = WXSceneTimeline;
+    [WXApi sendReq:req];
+}
 
 #pragma mark Renren
 
