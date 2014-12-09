@@ -10,6 +10,11 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import "RennSDK/RennSDK.h"
 #import "WeiboSDK.h"
+#import "WXApi.h"
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate, WXApiDelegate>
+@end
+
 @interface PostViewController : UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate, RennHttpRequestDelegate, WBHttpRequestDelegate>
 
 @end
