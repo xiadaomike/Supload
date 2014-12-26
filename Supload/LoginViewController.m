@@ -54,28 +54,6 @@
 
 
 
-- (IBAction)renreLoginPressed:(UIButton *)sender {
-    if ([RennClient isLogin]) {
-        [RennClient logoutWithDelegate:self];
-    } else {
-        [RennClient loginWithDelegate:self];
-    }
-}
-
-
-- (void)rennLoginSuccess
-{
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:@"Login Successfully" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [alertView show];
-    [self updateRenrenButton];
-}
-
-- (void)rennLogoutSuccess
-{
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:@"Logout Successfully" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [alertView show];
-    [self updateRenrenButton];
-}
 
 
 @end

@@ -12,10 +12,13 @@
 
 
 @interface PostViewController ()
-@property (weak, nonatomic) IBOutlet UITextView *TextView;
-@property (weak, nonatomic) IBOutlet UIButton *wbButton;
+@property (strong, nonatomic) IBOutlet UITextView *TextView;
+@property (weak, nonatomic) IBOutlet UIButton *postButton;
+@property (weak, nonatomic) IBOutlet UIButton *galleryButton;
+@property (weak, nonatomic) IBOutlet UILabel *label;
 
 @property (strong, nonatomic) NSMutableArray *imageList;
+@property (weak, nonatomic) IBOutlet UIImageView *backGround;
 @property  (strong, nonatomic) NSMutableArray *FBphotIDlist;
 @property BOOL FBChosen;
 @property BOOL WXChosen;
@@ -29,16 +32,93 @@
 @implementation PostViewController
 
 -(void) viewDidLoad {
+    
+    [self updateRenren];
+    
+    //Setup fields.
     self.FBChosen = true;
     self.WXChosen = true;
     self.RenChosen = true;
+    self.WBChosen = true;
     self.WBLoggedIn = false;
+    int ROUND_BUTTON_WIDTH_HEIGHT = self.view.frame.size.width/8;
+    int OFF_SET = self.view.frame.size.width/16;
+    int x = self.view.frame.size.width/4;
+    int y = self.view.frame.size.height*3/4;
+    int height = self.view.frame.size.height;
+    int width = self.view.frame.size.width;
+    
+    
+    //Set up backGround
+    [self.backGround setImage:[UIImage imageNamed:@"background.png"]];
+    self.backGround.userInteractionEnabled = true;
+    
+    //Set up Textview;
+    self.TextView = [[UITextView alloc] initWithFrame:CGRectMake(width/16, height/5, width*7/8, height/5)];
+    self.TextView.layer.cornerRadius = 10.0;
+    self.TextView.clipsToBounds = YES;
+    self.TextView.alpha = 0.7;
+    [self.view addSubview:self.TextView];
+    
+    
+    
+    //Set up buttons.
+    UIButton *fb = [UIButton buttonWithType:UIButtonTypeCustom];
+    [fb setRestorationIdentifier:@"fb"];
+    [fb addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)]];
+    [fb setImage:[UIImage imageNamed:@"facebook.png"] forState:UIControlStateNormal];
+    [fb addTarget:self action:@selector(chooseFBButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    fb.frame = CGRectMake(OFF_SET, y, ROUND_BUTTON_WIDTH_HEIGHT, ROUND_BUTTON_WIDTH_HEIGHT);
+    fb.clipsToBounds = YES;
+    fb.layer.cornerRadius = ROUND_BUTTON_WIDTH_HEIGHT/2.0f;
+    [self.view addSubview:fb];
+    
+    UIButton *wb = [UIButton buttonWithType:UIButtonTypeCustom];
+    [wb setRestorationIdentifier:@"wb"];
+    [wb addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)]];
+    [wb setImage:[UIImage imageNamed:@"weibo.png"] forState:UIControlStateNormal];
+    [wb addTarget:self action:@selector(chooseWBButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    wb.frame = CGRectMake(3 * x + OFF_SET, y, ROUND_BUTTON_WIDTH_HEIGHT, ROUND_BUTTON_WIDTH_HEIGHT);
+    wb.clipsToBounds = YES;
+    wb.layer.cornerRadius = ROUND_BUTTON_WIDTH_HEIGHT/2.0f;
+    [self.view addSubview:wb];
+    
+    
+    UIButton *ren = [UIButton buttonWithType:UIButtonTypeCustom];
+    [ren setRestorationIdentifier:@"ren"];
+    [ren addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)]];
+    [ren setImage:[UIImage imageNamed:@"renren.png"] forState:UIControlStateNormal];
+    [ren addTarget:self action:@selector(chooseRenButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    ren.frame = CGRectMake(x+OFF_SET/2, y-OFF_SET/2, ROUND_BUTTON_WIDTH_HEIGHT*1.5, ROUND_BUTTON_WIDTH_HEIGHT*1.5);
+    ren.clipsToBounds = YES;
+    ren.layer.cornerRadius = ROUND_BUTTON_WIDTH_HEIGHT/2.0f;
+    [self.view addSubview:ren];
 
+    
+    UIButton *wx = [UIButton buttonWithType:UIButtonTypeCustom];
+    [wx setRestorationIdentifier:@"wx"];
+    [wx addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)]];
+    [wx setImage:[UIImage imageNamed:@"wechat.png"] forState:UIControlStateNormal];
+    [wx addTarget:self action:@selector(chooseWXButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    wx.frame = CGRectMake( 2 * x + OFF_SET, y, ROUND_BUTTON_WIDTH_HEIGHT, ROUND_BUTTON_WIDTH_HEIGHT);
+    wx.clipsToBounds = YES;
+    wx.layer.cornerRadius = ROUND_BUTTON_WIDTH_HEIGHT/2.0f;
+    [self.view addSubview:wx];
+    
+
+    // Setup label
+    NSString *s = [NSString stringWithFormat:@"%lu images chosen.", (unsigned long)[self.imageList count]];
+    self.label.text = s;
 }
 
 
+- (IBAction)tapBack:(UITapGestureRecognizer *)sender {
+    [self.TextView resignFirstResponder];
+}
 
 -(void)pan:(UIPanGestureRecognizer *)recognizer {
+    int y = self.view.frame.size.height*3/4;
+    int OFF_SET = self.view.frame.size.width/16;
     if (recognizer.state == UIGestureRecognizerStateChanged ||
         recognizer.state == UIGestureRecognizerStateBegan) {
         
@@ -46,25 +126,34 @@
         CGPoint translation = [recognizer translationInView:self.view];
         
         CGRect newButtonFrame = draggedButton.frame;
-        newButtonFrame.origin.y = MAX(newButtonFrame.origin.y+translation.y, self.view.frame.size.height*5/8);
+        newButtonFrame.origin.y = MAX(newButtonFrame.origin.y+translation.y, self.view.frame.size.height/2);
         draggedButton.frame = newButtonFrame;
         [recognizer setTranslation:CGPointZero inView:self.view];
 
     }
     if (recognizer.state == UIGestureRecognizerStateEnded) {
         UIView *draggedButton = recognizer.view;
-        if (draggedButton.frame.origin.y == self.view.frame.size.height*5/8) {
-            if ([draggedButton.restorationIdentifier isEqualToString:@"WB"]) {
+        if (draggedButton.frame.origin.y == self.view.frame.size.height/2) {
+            if ([draggedButton.restorationIdentifier isEqualToString:@"wb"]) {
                 [self logInOutWeibo];
+            }
+            if ([draggedButton.restorationIdentifier isEqualToString:@"ren"]) {
+                [self renLogin];
+            }
+            if ([draggedButton.restorationIdentifier isEqualToString:@"fb"]) {
+                [self fbLogin];
             }
             
         }
-        [UIView animateWithDuration:0.5
+        if ([recognizer.view.restorationIdentifier isEqualToString:@"ren"]) {
+            y = y-OFF_SET/2;
+        }
+        [UIView animateWithDuration:0.3
                               delay:0.0
                             options:UIViewAnimationOptionCurveEaseIn
                          animations:^{
                              CGRect newButtonFrame = draggedButton.frame;
-                             newButtonFrame.origin.y = self.view.frame.size.height*3/4;
+                             newButtonFrame.origin.y = y;
                              draggedButton.frame = newButtonFrame;
                          }
                          completion:^(BOOL fin) {}];
@@ -78,6 +167,8 @@
     [self dismissViewControllerAnimated:YES completion:nil];
     [self.imageList addObject:img];
     NSLog(@"%lu photos in imageList", (unsigned long)[self.imageList count]);
+    NSString *s = [NSString stringWithFormat:@"%lu images chosen.", (unsigned long)[self.imageList count]];
+    self.label.text = s;
 }
 
 
@@ -104,11 +195,11 @@
 - (IBAction)chooseFBButtonPressed:(UIButton *)sender {
     if (self.FBChosen) {
         sender.highlighted = false;
-        [sender setImage:[UIImage imageNamed:@"pikachu"] forState:UIControlStateNormal];
+        [sender setImage:[UIImage imageNamed:@"facebook-2.png"] forState:UIControlStateNormal];
         self.FBChosen = false;
     } else {
         [sender setHighlighted:true];
-        [sender setImage:[UIImage imageNamed:@"fblogo"] forState:UIControlStateNormal];
+        [sender setImage:[UIImage imageNamed:@"facebook.png"] forState:UIControlStateNormal];
         self.FBChosen = true;
     }
     
@@ -116,11 +207,11 @@
 - (IBAction)chooseRenButtonPressed:(UIButton *)sender {
     if (self.RenChosen) {
         sender.highlighted = false;
-        [sender setImage:[UIImage imageNamed:@"pikachu"] forState:UIControlStateNormal];
+        [sender setImage:[UIImage imageNamed:@"renren-2.png"] forState:UIControlStateNormal];
         self.RenChosen = false;
     } else {
         [sender setHighlighted:true];
-        [sender setImage:[UIImage imageNamed:@"renlogo"] forState:UIControlStateNormal];
+        [sender setImage:[UIImage imageNamed:@"renren.png"] forState:UIControlStateNormal];
         self.RenChosen = true;
     }
 
@@ -129,11 +220,11 @@
 - (IBAction)chooseWXButtonPressed:(UIButton *)sender {
     if (self.WXChosen) {
         sender.highlighted = false;
-        [sender setImage:[UIImage imageNamed:@"pikachu"] forState:UIControlStateNormal];
+        [sender setImage:[UIImage imageNamed:@"wechat-2.png"] forState:UIControlStateNormal];
         self.WXChosen = false;
     } else {
         [sender setHighlighted:true];
-        [sender setImage:[UIImage imageNamed:@"wxlogo"] forState:UIControlStateNormal];
+        [sender setImage:[UIImage imageNamed:@"wechat.png"] forState:UIControlStateNormal];
         self.WXChosen = true;
     }
 
@@ -142,14 +233,16 @@
 - (IBAction)chooseWBButtonPressed:(UIButton *)sender {
     if (self.WBChosen) {
         sender.highlighted = false;
-        [sender setImage:[UIImage imageNamed:@"pikachu"] forState:UIControlStateNormal];
+        [sender setImage:[UIImage imageNamed:@"weibo-2.png"] forState:UIControlStateNormal];
         self.WBChosen = false;
     } else {
         [sender setHighlighted:true];
-        [sender setImage:[UIImage imageNamed:@"wblogo"] forState:UIControlStateNormal];
+        [sender setImage:[UIImage imageNamed:@"weibo.png"] forState:UIControlStateNormal];
         self.WBChosen = true;
     }
 }
+
+
 
 
 
@@ -164,6 +257,8 @@
     [self publishStory];
     [[self TextView] resignFirstResponder];
     [self.imageList removeAllObjects];
+    NSString *s = [NSString stringWithFormat:@"%lu images chosen.", (unsigned long)[self.imageList count]];
+    self.label.text = s;
 
 
 }
@@ -177,7 +272,7 @@
         if (self.WXChosen) [self updateWXStatusOnly];
         if (self.RenChosen) [self updateRennMessageOnlyStatus];
         if (self.WBChosen) {
-            
+            [self publishWeiboText];
         }
         
         
@@ -195,7 +290,7 @@
         }
         
         if (self.WBChosen) {
-            
+            [self publishWeiboPic];
         }
         
  
@@ -207,7 +302,22 @@
 
 #pragma mark FB
 
-
+-(void) fbLogin {
+    if (FBSession.activeSession.state == FBSessionStateOpen
+        || FBSession.activeSession.state == FBSessionStateOpenTokenExtended) {
+        
+        // Close the session and remove the access token from the cache
+        // The session state handler (in the app delegate) will be called automatically
+        [FBSession.activeSession closeAndClearTokenInformation];
+        
+        // If the session state is not any of the two "open" states when the button is clicked
+    } else {
+        // Open a session showing the user the login UI
+        // You must ALWAYS ask for public_profile permissions when opening a session
+        [FBSession openActiveSessionWithPublishPermissions:[NSArray arrayWithObject:@"publish_actions"] defaultAudience:FBSessionDefaultAudienceFriends allowLoginUI:true completionHandler:^(FBSession *session, FBSessionState state, NSError *error) {
+        }];
+    }
+}
 
 -(void) addUploadPhotoRequestsToFBConnection: (FBRequestConnection *)connection{
     for (UIImage *img in self.imageList) {
@@ -317,6 +427,36 @@
     
 }
 
+- (void)updateRenren {
+    [RennClient initWithAppId:@"271797"
+                       apiKey:@"8cfebb1a709542ac8dd6fe5e6e210185"
+                    secretKey:@"66c6723d6e4c4bb99dd729d36534d87f"];
+    [RennClient setScope:@"publish_blog publish_share send_notification photo_upload status_update create_album publish_comment publish_feed read_user_album"];
+    
+}
+
+- (IBAction)renLogin {
+    if ([RennClient isLogin]) {
+        [RennClient logoutWithDelegate:self];
+    } else {
+        [RennClient loginWithDelegate:self];
+    }
+}
+
+
+- (void)rennLoginSuccess
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:@"Login Successfully" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alertView show];
+}
+
+- (void)rennLogoutSuccess
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:@"Logout Successfully" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alertView show];
+}
+
+
 -(void) updateRennMessageOnlyStatus {
     PutStatusParam *param = [[PutStatusParam alloc] init];
     param.content = self.TextView.text;
@@ -377,7 +517,7 @@
     } else {
         WBAuthorizeRequest *request = [WBAuthorizeRequest request];
         request.redirectURI = WeiboRedirectURI;
-        request.scope = @"direct_messages_write";
+        request.scope = @"all";
         request.userInfo = @{@"SSO_From": @"PostViewController",};
         [WeiboSDK sendRequest:request];
         self.WBLoggedIn = true;
@@ -398,15 +538,54 @@
                                  otherButtonTitles:nil];
         [alert show];
 
+    } else if ([[request tag] isEqualToString:@"Text"]) {
+        NSString *title = nil;
+        UIAlertView *alert = nil;
+        title = @"成功发布消息";
+        alert = [[UIAlertView alloc] initWithTitle:title
+                                           message:nil
+                                          delegate:nil
+                                 cancelButtonTitle:@"确定"
+                                 otherButtonTitles:nil];
+        [alert show];
+    }
+
+}
+- (void)request:(WBHttpRequest *)request didFailWithError:(NSError *)error;
+{
+    if ([[request tag] isEqualToString:@"Text"]) {
+        NSString *title = nil;
+        UIAlertView *alert = nil;
+        title = @"发布消息失败";
+        alert = [[UIAlertView alloc] initWithTitle:title
+                                           message:error.description
+                                          delegate:nil
+                                 cancelButtonTitle:@"确定"
+                                 otherButtonTitles:nil];
+        [alert show];
     }
 
 }
 
 -(void)publishWeiboText {
     SuploadAppDelegate *myDelegate =(SuploadAppDelegate*)[[UIApplication sharedApplication] delegate];
-    NSDictionary *d = [NSDictionary dictionaryWithObjectsAndKeys:myDelegate.weibotoken, @"acess_token", self.TextView.description, @"status", nil];
+    NSDictionary *d = [NSDictionary dictionaryWithObjectsAndKeys:myDelegate.weibotoken, @"access_token", self.TextView.text, @"status", nil];
+    NSLog(@"Publishing weiboText, %@, %@", [d valueForKey:@"status"], myDelegate.weibotoken);
+
 
     [WBHttpRequest requestWithAccessToken:myDelegate.weibotoken url:@"https://api.weibo.com/2/statuses/update.json" httpMethod:@"POST" params:d delegate:self withTag:@"Text"];
+}
+
+-(void)publishWeiboPic {
+    SuploadAppDelegate *myDelegate =(SuploadAppDelegate*)[[UIApplication sharedApplication] delegate];
+    for (UIImage *image in self.imageList) {
+        NSData *data = UIImageJPEGRepresentation(image, 0.5);
+        NSDictionary *d = [NSDictionary dictionaryWithObjectsAndKeys:myDelegate.weibotoken, @"access_token", data, @"pic", self.TextView.text, @"status", nil];
+        NSLog(@"Publishing weiboPhotos, %@, %@", [d valueForKey:@"status"], myDelegate.weibotoken);
+        
+        
+        [WBHttpRequest requestWithAccessToken:myDelegate.weibotoken url:@"https://upload.api.weibo.com/2/statuses/upload.json" httpMethod:@"POST" params:d delegate:self withTag:@"Text"];
+    }
 }
 
 @end
