@@ -143,7 +143,6 @@
             if ([draggedButton.restorationIdentifier isEqualToString:@"fb"]) {
                 [self fbLogin];
             }
-            
         }
         if ([recognizer.view.restorationIdentifier isEqualToString:@"ren"]) {
             y = y-OFF_SET/2;
@@ -379,11 +378,6 @@
 #pragma mark WX
 
 -(void)updateWXStatusOnly {
-    if (![WXApi isWXAppInstalled]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Wechat app is not installed" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alert show];
-        return;
-    }
     SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
     req.text = self.TextView.text;
     req.bText = YES;
@@ -414,6 +408,13 @@
     req.message = message;
     req.scene = WXSceneTimeline;
     [WXApi sendReq:req];
+}
+
+- (void) onResp:(BaseResp*)resp {
+    if([resp isKindOfClass:[SendMessageToWXResp class]]) {
+        NSString *strMsg = [NSString stringWithFormat:@"Result:%d", resp.errCode];
+        NSLog(@"Response from Weixin was: %@",strMsg);
+    }
 }
 
 #pragma mark Renren
