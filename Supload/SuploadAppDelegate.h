@@ -10,8 +10,9 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import "RennSDK/RennSDK.h"
 #import "WeiboSDK.h"
+#import "WXApi.h"
 
-@interface SuploadAppDelegate : UIResponder <UIApplicationDelegate, WeiboSDKDelegate>
+@interface SuploadAppDelegate : UIResponder <UIApplicationDelegate, WeiboSDKDelegate, WXApiDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) NSString *weibotoken;

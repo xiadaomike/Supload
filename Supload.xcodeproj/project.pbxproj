@@ -24,7 +24,6 @@
 		183147B119B63C4700B00F46 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183147B019B63C4700B00F46 /* LoginViewController.m */; };
 		183F5B7F1A21020800B9F22B /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 183F5B7C1A21020800B9F22B /* libWeiboSDK.a */; };
 		183F5B801A21020800B9F22B /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 183F5B7D1A21020800B9F22B /* WeiboSDK.bundle */; };
-		184420C11A37991A00132DB8 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 184420BE1A37991A00132DB8 /* libWeChatSDK.a */; };
 		184DA6E619C789900039C58E /* RennSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184DA6E519C789900039C58E /* RennSDK.framework */; };
 		1891094C19C75DEC00AA51A6 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1891094B19C75DEC00AA51A6 /* libsqlite3.0.dylib */; };
 		18AB1EBF1A242D1100BDB696 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18AB1EBE1A242D1100BDB696 /* FacebookSDK.framework */; };
@@ -32,6 +31,7 @@
 		18D767951A47B7180014CB61 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D767941A47B7180014CB61 /* libc++.dylib */; };
 		18D767971A47B73F0014CB61 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D767961A47B73F0014CB61 /* libz.dylib */; };
 		18EE163219D5D12B00BAA98A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18EE163119D5D12B00BAA98A /* Images.xcassets */; };
+		C0CE03E21A4F59E1008039B3 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0CE03DF1A4F59E1008039B3 /* libWeChatSDK.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,9 +70,6 @@
 		183F5B7C1A21020800B9F22B /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWeiboSDK.a; path = libWeiboSDK/libWeiboSDK.a; sourceTree = "<group>"; };
 		183F5B7D1A21020800B9F22B /* WeiboSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = WeiboSDK.bundle; path = libWeiboSDK/WeiboSDK.bundle; sourceTree = "<group>"; };
 		183F5B7E1A21020800B9F22B /* WeiboSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeiboSDK.h; path = libWeiboSDK/WeiboSDK.h; sourceTree = "<group>"; };
-		184420BE1A37991A00132DB8 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
-		184420BF1A37991A00132DB8 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
-		184420C01A37991A00132DB8 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		184DA6E519C789900039C58E /* RennSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RennSDK.framework; path = Supload/RennSDK.framework; sourceTree = "<group>"; };
 		1891094B19C75DEC00AA51A6 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		18AB1EBE1A242D1100BDB696 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
@@ -80,6 +77,9 @@
 		18D767941A47B7180014CB61 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		18D767961A47B73F0014CB61 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		18EE163119D5D12B00BAA98A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C0CE03DF1A4F59E1008039B3 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		C0CE03E01A4F59E1008039B3 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		C0CE03E11A4F59E1008039B3 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +92,7 @@
 				18D767931A47A60C0014CB61 /* SystemConfiguration.framework in Frameworks */,
 				1891094C19C75DEC00AA51A6 /* libsqlite3.0.dylib in Frameworks */,
 				184DA6E619C789900039C58E /* RennSDK.framework in Frameworks */,
-				184420C11A37991A00132DB8 /* libWeChatSDK.a in Frameworks */,
+				C0CE03E21A4F59E1008039B3 /* libWeChatSDK.a in Frameworks */,
 				1831477819B63A5B00B00F46 /* CoreGraphics.framework in Frameworks */,
 				183F5B7F1A21020800B9F22B /* libWeiboSDK.a in Frameworks */,
 				1831477A19B63A5B00B00F46 /* UIKit.framework in Frameworks */,
@@ -172,10 +172,10 @@
 		1831477C19B63A5B00B00F46 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C0CE03DF1A4F59E1008039B3 /* libWeChatSDK.a */,
+				C0CE03E01A4F59E1008039B3 /* WXApi.h */,
+				C0CE03E11A4F59E1008039B3 /* WXApiObject.h */,
 				183F5B7C1A21020800B9F22B /* libWeiboSDK.a */,
-				184420BE1A37991A00132DB8 /* libWeChatSDK.a */,
-				184420BF1A37991A00132DB8 /* WXApi.h */,
-				184420C01A37991A00132DB8 /* WXApiObject.h */,
 				183F5B7D1A21020800B9F22B /* WeiboSDK.bundle */,
 				183F5B7E1A21020800B9F22B /* WeiboSDK.h */,
 				1831477D19B63A5B00B00F46 /* Supload-Info.plist */,
@@ -461,6 +461,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Supload",
 					"$(PROJECT_DIR)/Supload/libWeiboSDK",
+					"$(PROJECT_DIR)/Supload/libWechatSDK",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
@@ -494,6 +495,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Supload",
 					"$(PROJECT_DIR)/Supload/libWeiboSDK",
+					"$(PROJECT_DIR)/Supload/libWechatSDK",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (

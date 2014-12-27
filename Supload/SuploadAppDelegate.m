@@ -21,6 +21,10 @@
 
     [WeiboSDK enableDebugMode:YES];
     [WeiboSDK registerApp:WeiboAppKey];
+    if (![WXApi registerApp:@"wx3c8b5b6ca53158c6"]) {
+        NSLog(@"Failed to register with Weixin");
+    }
+
     
     return YES;
 }
@@ -65,13 +69,17 @@
 }
 
 
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    return [WXApi handleOpenURL:url delegate:self];
+}
+
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
     BOOL wasHandled = false;
     NSLog(@"url scheme :%@",[url scheme]);
     if ([[url scheme] caseInsensitiveCompare:@"fb1487985811456376"] == NSOrderedSame){
         wasHandled = [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
-     //else if ([[url scheme] caseInsensitiveCompare:@"wx3c8b5b6ca53158c6"] == NSOrderedSame){
-       // wasHandled = [WXApi handleOpenURL:url delegate:self];
+    } else if ([[url scheme] caseInsensitiveCompare:@"wx3c8b5b6ca53158c6"] == NSOrderedSame){
+       wasHandled = [WXApi handleOpenURL:url delegate:self];
     } else if ([[url scheme] caseInsensitiveCompare:@"rm271797Jingzhao.${PRODUCT_NAME:rfc1034identifier}"] == NSOrderedSame) {
         wasHandled = [RennClient  handleOpenURL:url];
     } else if ([[url scheme] caseInsensitiveCompare:@"wb1997768762"] == NSOrderedSame) {
@@ -81,7 +89,7 @@
     //if (!wasHandled) other applications
     return wasHandled;
 }
-							
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
