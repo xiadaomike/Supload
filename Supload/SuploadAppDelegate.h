@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <FacebookSDK/FacebookSDK.h>
+#import "RennSDK/RennSDK.h"
 #import "WeiboSDK.h"
 
 @interface SuploadAppDelegate : UIResponder <UIApplicationDelegate, WeiboSDKDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) NSString *weibotoken;
+@property BOOL WBLoggedIn;
 
 @end
